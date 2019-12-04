@@ -28,6 +28,7 @@ class CitiesViewController: UIViewController {
         weather = AllWeatherConditions.getWeatherConditions()
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailViewController = segue.destination as? CitiesDVController, let indexPath = tableView.indexPathForSelectedRow else {
             fatalError ("Unable to access Detail View Controller")}

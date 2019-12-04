@@ -13,8 +13,9 @@ struct ColorsData: Decodable {
 }
 
 struct Details: Decodable {
-    var hex: [Hex]
-    var rgb: [RGB]
+    var hex: Hex
+    var rgb: RGB
+    var name: Name
 }
 
 struct Hex: Decodable {
@@ -32,11 +33,14 @@ struct RGB: Decodable {
         case bValue = "b"
     }
 }
+struct Name: Decodable {
+    var value: String
+}
 
 extension ColorsData {
     static func getColors() -> [Details] {
         var colors = [Details]()
-        guard let fileURL = Bundle.main.url(forResource: "colorScheme", withExtension: "json") else {
+        guard let fileURL = Bundle.main.url(forResource: "colorSchemes", withExtension: "json") else {
             fatalError("Unable to locate colorSchemes.json")
         }
             do {

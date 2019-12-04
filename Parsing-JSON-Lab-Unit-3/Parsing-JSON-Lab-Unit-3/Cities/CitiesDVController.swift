@@ -11,6 +11,7 @@ import UIKit
 class CitiesDVController: UIViewController {
     
 
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     var city: CitiesData?
@@ -23,8 +24,10 @@ class CitiesDVController: UIViewController {
     }
     
     func updateUI() {
-        tempLabel.text = "The temperature is \(city!.main.temp) degrees Celsius"
+        nameLabel.text = "\(city!.name)"
+        tempLabel.text = "The temperature is \(city!.main.temp) degrees Celsius."
         weatherLabel.text = "The weather is \(city!.weather.first?.description ?? "")."
         
     }
+ 
 }
